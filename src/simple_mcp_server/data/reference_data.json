@@ -1,0 +1,241 @@
+{
+  "_comment": "Synthetic public-records and verification data. Represents a third-party system of record, deliberately independent of the policy administration system. All individuals are fictional.",
+  "individuals": [
+    {
+      "recordId": "IDV-1001",
+      "name": "Patricia Mitchell",
+      "dateOfBirth": "1974-08-02",
+      "addresses": [
+        {"line1": "18 Larchmont Way", "city": "Madison", "state": "WI", "postalCode": "53703", "verifiedOn": "2023-11-04", "status": "former"}
+      ],
+      "emails": [{"address": "patricia.mitchell@example.com", "lastVerified": "2023-09-18", "bounceCount": 0}],
+      "phones": [{"number": "555-0102", "lastVerified": "2024-02-11", "status": "active"}],
+      "identityConfidence": 0.97,
+      "deathRegister": null,
+      "watchlist": [],
+      "notes": "Identity fully corroborated across credit header and state records."
+    },
+    {
+      "recordId": "IDV-1002",
+      "name": "Caroline Whitfield",
+      "dateOfBirth": "1979-04-21",
+      "addresses": [
+        {"line1": "18 Larchmont Way", "city": "Madison", "state": "WI", "postalCode": "53703", "verifiedOn": "2025-08-30", "status": "current"}
+      ],
+      "emails": [{"address": "caroline.whitfield@example.com", "lastVerified": "2025-09-02", "bounceCount": 0}],
+      "phones": [{"number": "555-0144", "lastVerified": "2025-09-02", "status": "active"}],
+      "identityConfidence": 0.96,
+      "deathRegister": null,
+      "watchlist": [],
+      "notes": "Shares current address with policy holder James Mitchell since 2024-05."
+    },
+    {
+      "recordId": "IDV-1003",
+      "name": "Daniel Reeves",
+      "dateOfBirth": "1991-01-17",
+      "addresses": [
+        {"line1": "402 Kestrel Street Apt 7", "city": "Tampa", "state": "FL", "postalCode": "33602", "verifiedOn": "2025-06-12", "status": "current"}
+      ],
+      "emails": [{"address": "d.reeves.contact@example.com", "lastVerified": "2025-09-20", "bounceCount": 0}],
+      "phones": [{"number": "555-0781", "lastVerified": "2025-09-20", "status": "active"}],
+      "identityConfidence": 0.88,
+      "deathRegister": null,
+      "watchlist": [],
+      "notes": "Credit header thin. Address history shows four moves in 24 months."
+    },
+    {
+      "recordId": "IDV-1004",
+      "name": "Lisa Nguyen",
+      "dateOfBirth": "1992-06-03",
+      "addresses": [
+        {"line1": "77 Alder Court", "city": "Portland", "state": "OR", "postalCode": "97209", "verifiedOn": "2024-10-01", "status": "former"}
+      ],
+      "emails": [{"address": "lisa.nguyen@example.com", "lastVerified": "2024-10-01", "bounceCount": 3}],
+      "phones": [{"number": "555-0304", "lastVerified": "2024-09-28", "status": "disconnected"}],
+      "identityConfidence": 0.95,
+      "deathRegister": {
+        "matchScore": 0.91,
+        "dateOfDeath": "2025-02-14",
+        "source": "State vital records index",
+        "sourceUpdated": "2025-04-01",
+        "note": "Name and date of birth match. Middle initial not present in source record."
+      },
+      "watchlist": [],
+      "notes": "Record flagged deceased by state index; not yet reflected in commercial credit header."
+    },
+    {
+      "recordId": "IDV-1005",
+      "name": "Carlos Garcia",
+      "dateOfBirth": "1986-12-19",
+      "addresses": [
+        {"line1": "1290 Sierra Vista Blvd", "city": "Phoenix", "state": "AZ", "postalCode": "85004", "verifiedOn": "2022-03-15", "status": "undeliverable", "note": "Mail returned twice in 2025."}
+      ],
+      "emails": [{"address": "c.garcia88@example.com", "lastVerified": "2023-01-10", "bounceCount": 5}],
+      "phones": [{"number": "555-0405", "lastVerified": "2022-11-02", "status": "unknown"}],
+      "identityConfidence": 0.86,
+      "deathRegister": null,
+      "watchlist": [],
+      "notes": "Common name. Two distinct individuals share this name within the same metro area."
+    },
+    {
+      "recordId": "IDV-1006",
+      "name": "Helen Kim",
+      "dateOfBirth": "1968-02-27",
+      "addresses": [
+        {"line1": "9 Brookhaven Lane", "city": "Seattle", "state": "WA", "postalCode": "98109", "verifiedOn": "2025-07-19", "status": "current"}
+      ],
+      "emails": [{"address": "helen.kim@example.com", "lastVerified": "2025-07-19", "bounceCount": 0}],
+      "phones": [{"number": "555-0506", "lastVerified": "2025-07-19", "status": "active"}],
+      "identityConfidence": 0.94,
+      "deathRegister": null,
+      "watchlist": [
+        {
+          "listName": "OFAC SDN (synthetic demo list)",
+          "matchedName": "Helen Kym",
+          "matchScore": 0.84,
+          "matchedOn": ["surname phonetic", "given name exact"],
+          "discriminators": {"dateOfBirth": "no date of birth on list entry", "country": "listed entry associated with a country the subject has no recorded connection to"},
+          "listEntryUpdated": "2024-11-30"
+        }
+      ],
+      "notes": "Phonetic near-match only. No corroborating identifiers."
+    },
+    {
+      "recordId": "IDV-1007",
+      "name": "Mark Thompson",
+      "dateOfBirth": "1983-03-09",
+      "addresses": [
+        {"line1": "561 Juniper Avenue", "city": "Denver", "state": "CO", "postalCode": "80218", "verifiedOn": "2025-09-28", "status": "current"}
+      ],
+      "emails": [{"address": "mark.thompson@example.com", "lastVerified": "2025-09-28", "bounceCount": 0}],
+      "phones": [{"number": "555-0203", "lastVerified": "2025-09-28", "status": "active"}],
+      "identityConfidence": 0.98,
+      "deathRegister": null,
+      "watchlist": [],
+      "notes": "Fully corroborated. No adverse signals."
+    },
+    {
+      "recordId": "IDV-1008",
+      "name": "Rebecca Thompson",
+      "dateOfBirth": "2011-05-14",
+      "addresses": [
+        {"line1": "561 Juniper Avenue", "city": "Denver", "state": "CO", "postalCode": "80218", "verifiedOn": "2025-09-28", "status": "current"}
+      ],
+      "emails": [],
+      "phones": [],
+      "identityConfidence": 0.72,
+      "deathRegister": null,
+      "watchlist": [],
+      "notes": "Minor. Limited record footprint is expected for this age."
+    }
+  ],
+  "relationships": [
+    {
+      "partyA": "James Mitchell",
+      "partyB": "Patricia Mitchell",
+      "records": [
+        {"type": "marriage", "date": "2003-05-24", "jurisdiction": "Dane County, WI"},
+        {"type": "divorce", "date": "2023-08-11", "jurisdiction": "Dane County, WI", "decreeReference": "DC-2023-4471"}
+      ],
+      "currentStatus": "divorced"
+    },
+    {
+      "partyA": "James Mitchell",
+      "partyB": "Caroline Whitfield",
+      "records": [
+        {"type": "cohabitation", "firstObserved": "2024-05-01", "source": "Shared address on credit header"}
+      ],
+      "currentStatus": "domestic partner (inferred)"
+    },
+    {
+      "partyA": "Sarah Thompson",
+      "partyB": "Mark Thompson",
+      "records": [{"type": "marriage", "date": "2012-09-15", "jurisdiction": "Denver County, CO"}],
+      "currentStatus": "married"
+    },
+    {
+      "partyA": "Sarah Thompson",
+      "partyB": "Daniel Reeves",
+      "records": [],
+      "currentStatus": "no recorded relationship"
+    },
+    {
+      "partyA": "David Nguyen",
+      "partyB": "Lisa Nguyen",
+      "records": [{"type": "marriage", "date": "2016-04-02", "jurisdiction": "Multnomah County, OR"}],
+      "currentStatus": "married"
+    },
+    {
+      "partyA": "Maria Garcia",
+      "partyB": "Carlos Garcia",
+      "records": [{"type": "marriage", "date": "2014-07-19", "jurisdiction": "Maricopa County, AZ"}],
+      "currentStatus": "married"
+    },
+    {
+      "partyA": "Robert Kim",
+      "partyB": "Helen Kim",
+      "records": [{"type": "marriage", "date": "1994-06-11", "jurisdiction": "King County, WA"}],
+      "currentStatus": "married"
+    }
+  ],
+  "fraudSignals": [
+    {
+      "subjectName": "Daniel Reeves",
+      "signals": [
+        {"code": "SERIAL_BENEFICIARY", "severity": "high", "description": "Named as beneficiary on 3 unrelated life policies across 2 carriers within the last 9 months.", "observedOn": "2025-09-30", "corroboration": "Industry beneficiary-change clearinghouse (synthetic)"},
+        {"code": "NO_INSURABLE_RELATIONSHIP", "severity": "medium", "description": "No marriage, cohabitation, employment or dependency record links subject to the policy holder.", "observedOn": "2025-10-02"},
+        {"code": "CONTACT_REUSE", "severity": "medium", "description": "Contact email appears on 2 of the other 3 beneficiary designations under a different beneficiary name.", "observedOn": "2025-09-30"}
+      ]
+    },
+    {
+      "subjectName": "Carlos Garcia",
+      "signals": [
+        {"code": "STALE_CONTACT", "severity": "low", "description": "No successful contact verification in over 24 months; mail returned twice.", "observedOn": "2025-05-20"}
+      ]
+    },
+    {
+      "subjectName": "Caroline Whitfield",
+      "signals": []
+    },
+    {
+      "subjectName": "Mark Thompson",
+      "signals": []
+    },
+    {
+      "subjectName": "Helen Kim",
+      "signals": []
+    }
+  ],
+  "requestChannelHistory": [
+    {
+      "policyNumber": "NWM-2025-001",
+      "holderName": "James Mitchell",
+      "priorChanges": [],
+      "lastRequest": {"channel": "authenticated portal", "deviceFirstSeen": "2021-07-04", "ipCountry": "US", "stepUpAuthCompleted": true, "observedOn": "2025-10-14"}
+    },
+    {
+      "policyNumber": "NWM-2025-002",
+      "holderName": "Sarah Thompson",
+      "priorChanges": [{"date": "2025-07-28", "outcome": "reversed by holder", "note": "Holder contacted the contact centre 6 days later to reverse the change."}],
+      "lastRequest": {"channel": "email instruction", "deviceFirstSeen": "2025-10-09", "ipCountry": "US", "stepUpAuthCompleted": false, "observedOn": "2025-10-16"}
+    },
+    {
+      "policyNumber": "NWM-2025-003",
+      "holderName": "David Nguyen",
+      "priorChanges": [],
+      "lastRequest": {"channel": "authenticated portal", "deviceFirstSeen": "2022-01-30", "ipCountry": "US", "stepUpAuthCompleted": true, "observedOn": "2025-10-11"}
+    },
+    {
+      "policyNumber": "NWM-2025-004",
+      "holderName": "Maria Garcia",
+      "priorChanges": [],
+      "lastRequest": {"channel": "agent assisted", "deviceFirstSeen": "2025-10-01", "ipCountry": "US", "stepUpAuthCompleted": true, "observedOn": "2025-10-15"}
+    },
+    {
+      "policyNumber": "NWM-2023-005",
+      "holderName": "Robert Kim",
+      "priorChanges": [],
+      "lastRequest": {"channel": "authenticated portal", "deviceFirstSeen": "2019-03-22", "ipCountry": "US", "stepUpAuthCompleted": true, "observedOn": "2025-10-12"}
+    }
+  ]
+}

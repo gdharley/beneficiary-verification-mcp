@@ -1,10 +1,48 @@
 # simple-mcp-server
 
-A minimal Python starter project for building an MCP server with FastMCP.
+An MCP server providing **third-party verification data for life insurance
+beneficiary change requests**, built for a Flowable demo.
 
-It currently exposes one tool:
+It is deliberately *not* a wrapper over the policy administration system. The
+Flowable process retrieves the policy and the requested change through the
+existing REST services; an agent then calls these tools for the independent
+evidence the policy system cannot hold — public records, death registers,
+watchlists and fraud clearinghouse signals.
 
-- `add(a, b)`: returns the sum of two numbers
+Every tool returns **evidence with confidence scores, never a decision**. Judging
+whether a change may proceed is left to the agent and, where the evidence is
+ambiguous, to a human task in Flowable.
+
+## Tools
+
+| Tool | Returns |
+| --- | --- |
+| `verify_identity(name, date_of_birth?, address?)` | Match score, identity confidence, address history, discrepancies, minor flag |
+| `check_deceased(name, date_of_birth?)` | Death register match score, date of death, source currency |
+| `verify_relationship(policy_holder_name, beneficiary_name, claimed_relationship)` | Marriage/divorce/cohabitation records and consistency with the claim |
+| `screen_watchlist(name, date_of_birth?)` | Sanctions and PEP hits with match scores and discriminators |
+| `check_contactability(name, email?, phone?)` | Last-verified dates, bounce counts, undeliverable addresses |
+| `assess_fraud_signals(policy_number, beneficiary_name)` | Clearinghouse signals plus the request's channel and authentication history |
+
+## Demo scenarios
+
+The reference data is seeded so that each policy in the demo JSON server
+produces a materially different outcome. In every case the external evidence is
+something the policy system could not know on its own.
+
+| Policy | Proposed beneficiary | What the evidence shows | Expected handling |
+| --- | --- | --- | --- |
+| NWM-2025-001 (James Mitchell) | Caroline Whitfield, domestic partner | Divorce from the existing beneficiary recorded 2023; shared address with the new beneficiary since 2024 | Change is corroborated — proceed |
+| NWM-2025-002 (Sarah Thompson) | Daniel Reeves, friend | Named on 3 unrelated policies in 9 months, contact email reused across designations, no step-up auth, prior change reversed by the holder | Fraud investigation |
+| NWM-2025-003 (David Nguyen) | Lisa Nguyen, spouse | Death register hit at 0.91, date of death 2025-02-14 | Cannot name a deceased beneficiary — clarify with holder |
+| NWM-2025-004 (Maria Garcia) | Carlos Garcia, spouse | Identity confidence 0.86 on a common name, date of birth mismatch, mail returned twice | Genuinely ambiguous — escalate for outreach |
+| NWM-2023-005 (Robert Kim) | Helen Kim, spouse | Watchlist phonetic near-match at 0.84, no corroborating identifiers | Adjudicate the near-match before proceeding |
+
+Note that NWM-2025-001 carries `otp_processing_allowed: true` in the policy
+system. The demo's point is that external evidence can override straight-through
+processing in either direction.
+
+All individuals, lists and records are synthetic.
 
 ## Requirements
 
@@ -12,59 +50,33 @@ It currently exposes one tool:
 
 ## Install
 
-If you want the project installed into the current virtual environment:
-
 ```bash
-./.venv/bin/pip install -e .
+./.venv/bin/python -m pip install -e .
 ```
 
 ## Run the server
-
-Run over HTTP on port `9000`.
-
-Without installing the package, point Python at the `src/` tree:
 
 ```bash
 PYTHONPATH=src ./.venv/bin/python -m simple_mcp_server
 ```
 
-Or, after installing the package:
+Or, after installing:
 
 ```bash
-./.venv/bin/simple-mcp-server
+simple-mcp-server
 ```
 
-The MCP HTTP endpoint will be available at:
+The MCP endpoint is `http://127.0.0.1:9000/mcp`.
 
-```text
-http://127.0.0.1:9000/mcp
-```
+### Configuration
 
-## Try the tool from a client
+| Variable | Default | Purpose |
+| --- | --- | --- |
+| `HOST` | `127.0.0.1` | Bind address. Render sets this to `0.0.0.0`. |
+| `PORT` | `9000` | Bind port. Injected by Render. |
+| `MCP_AUTH_TOKEN` | unset | When set, requires `Authorization: Bearer <token>`. When unset, the server runs unauthenticated and logs a warning. |
 
-This opens an in-process MCP client and calls the `add` tool:
-
-```bash
-./.venv/bin/python - <<'PY'
-import asyncio
-from fastmcp import Client
-
-from simple_mcp_server.server import mcp
-
-async def main():
-    async with Client(mcp) as client:
-        result = await client.call_tool("add", {"a": 2, "b": 3})
-        print(result.content[0].text)
-
-asyncio.run(main())
-PY
-```
-
-Expected output:
-
-```text
-5.0
-```
+Set `MCP_AUTH_TOKEN` for any deployment that is publicly reachable.
 
 ## Run tests
 
@@ -75,13 +87,9 @@ PYTHONPATH=src ./.venv/bin/python -m unittest discover -s tests -v
 ## Deploy to Render
 
 The repo includes a `render.yaml` blueprint. In Render, choose **New > Blueprint**
-and point it at this repository; it provisions a single web service.
-
-Two environment variables drive the bind address:
-
-- `HOST`: set to `0.0.0.0` by the blueprint so Render can route to the container.
-  Defaults to `127.0.0.1` locally.
-- `PORT`: injected by Render. Defaults to `9000` locally.
+and point it at this repository; it provisions a single web service. The
+blueprint declares `MCP_AUTH_TOKEN` with `sync: false`, so Render prompts for the
+value rather than storing it in the repo.
 
 Once deployed, the MCP endpoint is:
 

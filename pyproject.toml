@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "simple-mcp-server"
 version = "0.1.0"
-description = "A minimal FastMCP starter project with a simple add tool."
+description = "MCP verification services for life insurance beneficiary change requests."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
@@ -20,3 +20,6 @@ package-dir = {"" = "src"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+simple_mcp_server = ["data/*.json"]
