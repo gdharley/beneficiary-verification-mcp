@@ -1,10 +1,10 @@
 services:
   - type: web
-    name: simple-mcp-server
+    name: beneficiary-verification-mcp
     runtime: python
     plan: free
     buildCommand: pip install .
-    startCommand: simple-mcp-server
+    startCommand: beneficiary-verification-mcp
     envVars:
       - key: PYTHON_VERSION
         value: "3.12.7"

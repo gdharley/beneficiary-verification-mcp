@@ -1,4 +1,4 @@
-# simple-mcp-server
+# beneficiary-verification-mcp
 
 An MCP server providing **third-party verification data for life insurance
 beneficiary change requests**, built for a Flowable demo.
@@ -57,13 +57,13 @@ All individuals, lists and records are synthetic.
 ## Run the server
 
 ```bash
-PYTHONPATH=src ./.venv/bin/python -m simple_mcp_server
+PYTHONPATH=src ./.venv/bin/python -m beneficiary_verification
 ```
 
 Or, after installing:
 
 ```bash
-simple-mcp-server
+beneficiary-verification-mcp
 ```
 
 The MCP endpoint is `http://127.0.0.1:9000/mcp`.

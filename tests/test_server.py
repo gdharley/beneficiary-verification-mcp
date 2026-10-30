@@ -3,7 +3,7 @@ import unittest
 
 from fastmcp import Client
 
-from simple_mcp_server.server import mcp
+from beneficiary_verification.server import mcp
 
 
 async def call(tool: str, args: dict) -> dict:

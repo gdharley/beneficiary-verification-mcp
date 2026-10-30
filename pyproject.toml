@@ -3,7 +3,7 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "simple-mcp-server"
+name = "beneficiary-verification-mcp"
 version = "0.1.0"
 description = "MCP verification services for life insurance beneficiary change requests."
 readme = "README.md"
@@ -13,7 +13,7 @@ dependencies = [
 ]
 
 [project.scripts]
-simple-mcp-server = "simple_mcp_server.__main__:main"
+beneficiary-verification-mcp = "beneficiary_verification.__main__:main"
 
 [tool.setuptools]
 package-dir = {"" = "src"}
@@ -22,4 +22,4 @@ package-dir = {"" = "src"}
 where = ["src"]
 
 [tool.setuptools.package-data]
-simple_mcp_server = ["data/*.json"]
+beneficiary_verification = ["data/*.json"]
