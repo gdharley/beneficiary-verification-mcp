@@ -7,7 +7,7 @@ services:
     startCommand: beneficiary-verification-mcp
     envVars:
       - key: PYTHON_VERSION
-        value: "3.12.7"
+        value: "3.13.7"
       - key: HOST
         value: 0.0.0.0
       - key: MCP_AUTH_TOKEN

@@ -7,7 +7,7 @@ name = "beneficiary-verification-mcp"
 version = "0.1.0"
 description = "MCP verification services for life insurance beneficiary change requests."
 readme = "README.md"
-requires-python = ">=3.12"
+requires-python = ">=3.12,<4.0"
 dependencies = [
   "fastmcp>=3.2.3,<4",
 ]
