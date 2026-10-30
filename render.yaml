@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: simple-mcp-server
+    runtime: python
+    plan: free
+    buildCommand: pip install .
+    startCommand: simple-mcp-server
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12.7"
+      - key: HOST
+        value: 0.0.0.0

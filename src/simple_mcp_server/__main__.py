@@ -1,10 +1,14 @@
 """CLI entrypoint for running the MCP server over HTTP."""
 
+import os
+
 from .server import mcp
 
 
 def main() -> None:
-    mcp.run(transport="http", host="127.0.0.1", port=9000)
+    port = int(os.environ.get("PORT", 9000))
+    host = os.environ.get("HOST", "127.0.0.1")
+    mcp.run(transport="http", host=host, port=port)
 
 
 if __name__ == "__main__":

@@ -71,3 +71,27 @@ Expected output:
 ```bash
 PYTHONPATH=src ./.venv/bin/python -m unittest discover -s tests -v
 ```
+
+## Deploy to Render
+
+The repo includes a `render.yaml` blueprint. In Render, choose **New > Blueprint**
+and point it at this repository; it provisions a single web service.
+
+Two environment variables drive the bind address:
+
+- `HOST`: set to `0.0.0.0` by the blueprint so Render can route to the container.
+  Defaults to `127.0.0.1` locally.
+- `PORT`: injected by Render. Defaults to `9000` locally.
+
+Once deployed, the MCP endpoint is:
+
+```text
+https://<service-name>.onrender.com/mcp
+```
+
+Note: the blueprint sets no `healthCheckPath`. A plain `GET /mcp` returns `406`
+because the transport requires an SSE-capable `Accept` header, so a health check
+against it would fail the deploy. Render falls back to port detection instead.
+
+On the free plan the service sleeps after ~15 minutes idle, and the next request
+pays a cold start of roughly 30 seconds.
