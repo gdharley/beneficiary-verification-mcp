@@ -208,31 +208,31 @@
   ],
   "requestChannelHistory": [
     {
-      "policyNumber": "NWM-2025-001",
+      "policyNumber": "LIF-2025-001",
       "holderName": "James Mitchell",
       "priorChanges": [],
       "lastRequest": {"channel": "authenticated portal", "deviceFirstSeen": "2021-07-04", "ipCountry": "US", "stepUpAuthCompleted": true, "observedOn": "2025-10-14"}
     },
     {
-      "policyNumber": "NWM-2025-002",
+      "policyNumber": "LIF-2025-002",
       "holderName": "Sarah Thompson",
       "priorChanges": [{"date": "2025-07-28", "outcome": "reversed by holder", "note": "Holder contacted the contact centre 6 days later to reverse the change."}],
       "lastRequest": {"channel": "email instruction", "deviceFirstSeen": "2025-10-09", "ipCountry": "US", "stepUpAuthCompleted": false, "observedOn": "2025-10-16"}
     },
     {
-      "policyNumber": "NWM-2025-003",
+      "policyNumber": "LIF-2025-003",
       "holderName": "David Nguyen",
       "priorChanges": [],
       "lastRequest": {"channel": "authenticated portal", "deviceFirstSeen": "2022-01-30", "ipCountry": "US", "stepUpAuthCompleted": true, "observedOn": "2025-10-11"}
     },
     {
-      "policyNumber": "NWM-2025-004",
+      "policyNumber": "LIF-2025-004",
       "holderName": "Maria Garcia",
       "priorChanges": [],
       "lastRequest": {"channel": "agent assisted", "deviceFirstSeen": "2025-10-01", "ipCountry": "US", "stepUpAuthCompleted": true, "observedOn": "2025-10-15"}
     },
     {
-      "policyNumber": "NWM-2023-005",
+      "policyNumber": "LIF-2023-005",
       "holderName": "Robert Kim",
       "priorChanges": [],
       "lastRequest": {"channel": "authenticated portal", "deviceFirstSeen": "2019-03-22", "ipCountry": "US", "stepUpAuthCompleted": true, "observedOn": "2025-10-12"}

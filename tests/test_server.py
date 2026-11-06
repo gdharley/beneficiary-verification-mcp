@@ -142,7 +142,7 @@ class FraudSignalTests(unittest.IsolatedAsyncioTestCase):
     async def test_serial_beneficiary_surfaces_as_high_severity(self) -> None:
         result = await call(
             "assess_fraud_signals",
-            {"policy_number": "NWM-2025-002", "beneficiary_name": "Daniel Reeves"},
+            {"policy_number": "LIF-2025-002", "beneficiary_name": "Daniel Reeves"},
         )
 
         self.assertEqual(result["highestSeverity"], "high")
@@ -151,7 +151,7 @@ class FraudSignalTests(unittest.IsolatedAsyncioTestCase):
     async def test_request_history_accompanies_the_signals(self) -> None:
         result = await call(
             "assess_fraud_signals",
-            {"policy_number": "NWM-2025-002", "beneficiary_name": "Daniel Reeves"},
+            {"policy_number": "LIF-2025-002", "beneficiary_name": "Daniel Reeves"},
         )
 
         history = result["requestHistory"]
@@ -161,7 +161,7 @@ class FraudSignalTests(unittest.IsolatedAsyncioTestCase):
     async def test_unprofiled_subject_is_distinguished_from_a_clean_one(self) -> None:
         result = await call(
             "assess_fraud_signals",
-            {"policy_number": "NWM-2025-001", "beneficiary_name": "Wilhelmina Fotheringay"},
+            {"policy_number": "LIF-2025-001", "beneficiary_name": "Wilhelmina Fotheringay"},
         )
 
         self.assertFalse(result["beneficiaryProfiled"])

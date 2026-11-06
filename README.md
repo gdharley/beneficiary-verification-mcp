@@ -32,13 +32,13 @@ something the policy system could not know on its own.
 
 | Policy | Proposed beneficiary | What the evidence shows | Expected handling |
 | --- | --- | --- | --- |
-| NWM-2025-001 (James Mitchell) | Caroline Whitfield, domestic partner | Divorce from the existing beneficiary recorded 2023; shared address with the new beneficiary since 2024 | Change is corroborated — proceed |
-| NWM-2025-002 (Sarah Thompson) | Daniel Reeves, friend | Named on 3 unrelated policies in 9 months, contact email reused across designations, no step-up auth, prior change reversed by the holder | Fraud investigation |
-| NWM-2025-003 (David Nguyen) | Lisa Nguyen, spouse | Death register hit at 0.91, date of death 2025-02-14 | Cannot name a deceased beneficiary — clarify with holder |
-| NWM-2025-004 (Maria Garcia) | Carlos Garcia, spouse | Identity confidence 0.86 on a common name, date of birth mismatch, mail returned twice | Genuinely ambiguous — escalate for outreach |
-| NWM-2023-005 (Robert Kim) | Helen Kim, spouse | Watchlist phonetic near-match at 0.84, no corroborating identifiers | Adjudicate the near-match before proceeding |
+| LIF-2025-001 (James Mitchell) | Caroline Whitfield, domestic partner | Divorce from the existing beneficiary recorded 2023; shared address with the new beneficiary since 2024 | Change is corroborated — proceed |
+| LIF-2025-002 (Sarah Thompson) | Daniel Reeves, friend | Named on 3 unrelated policies in 9 months, contact email reused across designations, no step-up auth, prior change reversed by the holder | Fraud investigation |
+| LIF-2025-003 (David Nguyen) | Lisa Nguyen, spouse | Death register hit at 0.91, date of death 2025-02-14 | Cannot name a deceased beneficiary — clarify with holder |
+| LIF-2025-004 (Maria Garcia) | Carlos Garcia, spouse | Identity confidence 0.86 on a common name, date of birth mismatch, mail returned twice | Genuinely ambiguous — escalate for outreach |
+| LIF-2023-005 (Robert Kim) | Helen Kim, spouse | Watchlist phonetic near-match at 0.84, no corroborating identifiers | Adjudicate the near-match before proceeding |
 
-Note that NWM-2025-001 carries `otp_processing_allowed: true` in the policy
+Note that LIF-2025-001 carries `otp_processing_allowed: true` in the policy
 system. The demo's point is that external evidence can override straight-through
 processing in either direction.
 
